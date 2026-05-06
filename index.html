@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Free Fire Long Bio</title>
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/206sDG22/d76820893731.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --glass-bg: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.18);
+    --glass-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    --glass-blur: blur(28px) saturate(180%);
+    --accent: #FF6B35;
+    --accent2: #FF3D71;
+    --accent3: #00D4AA;
+    --accent4: #A78BFA;
+    --gold: #FFD700;
+    --bg1: #0A0A1A;
+    --bg2: #0F0F2E;
+    --text: #F0F0FF;
+    --text-muted: rgba(240,240,255,0.55);
+    --text-dim: rgba(240,240,255,0.3);
+    --sidebar-w: 280px;
+    --topbar-h: 64px;
+    --radius: 22px;
+    --radius-sm: 14px;
+    --radius-xs: 10px;
+    --spring: cubic-bezier(0.34,1.56,0.64,1);
+    --smooth: cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{font-size:16px;scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--bg1);color:var(--text);min-height:100vh;overflow-x:hidden;position:relative;}
+
+  /* BG */
+  .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 15% 20%,rgba(255,107,53,0.18) 0%,transparent 60%),radial-gradient(ellipse 70% 50% at 85% 80%,rgba(167,139,250,0.15) 0%,transparent 60%),linear-gradient(145deg,#0A0A1A 0%,#0F0F2E 50%,#0A0A1A 100%);}
+  .bg-orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;animation:orbFloat 18s ease-in-out infinite;}
+  .bg-orb-1{width:500px;height:500px;top:-150px;left:-150px;background:rgba(255,107,53,0.12);animation-delay:0s;}
+  .bg-orb-2{width:400px;height:400px;bottom:-100px;right:-100px;background:rgba(167,139,250,0.12);animation-delay:-6s;}
+  @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-40px) scale(1.05);}66%{transform:translate(-20px,30px) scale(0.95);}}
+
+  /* SIDEBAR */
+  .sidebar{position:fixed;top:0;left:0;height:100vh;width:var(--sidebar-w);z-index:1000;transform:translateX(-100%);transition:transform 0.4s var(--spring);background:rgba(10,10,26,0.85);backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);border-right:1px solid var(--glass-border);overflow-y:auto;overflow-x:hidden;}
+  .sidebar.open{transform:translateX(0);}
+  .sidebar::-webkit-scrollbar{width:4px;}
+  .sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+  .sidebar-inner{padding:20px 16px 40px;}
+  .sidebar-close-btn{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,0.08);color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,transform 0.2s;}
+  .sidebar-close-btn:hover{background:rgba(255,255,255,0.15);transform:rotate(90deg);}
+
+  /* Sidebar Logo */
+  .sidebar-logo{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-top:8px;}
+  .sidebar-logo img{width:48px;height:48px;border-radius:13px;border:2px solid var(--glass-border);box-shadow:0 4px 12px rgba(255,107,53,0.3);}
+  .sidebar-logo-name{font-size:15px;font-weight:800;color:var(--text);}
+  .sidebar-logo-sub{font-size:11px;color:var(--text-muted);}
+
+  /* Dev Card */
+  .dev-card{background:linear-gradient(135deg,rgba(255,107,53,0.12),rgba(255,61,113,0.08));border:1px solid rgba(255,107,53,0.22);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;}
+  .dev-card-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .dev-avatar{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,107,53,0.5);box-shadow:0 0 14px rgba(255,107,53,0.3);object-fit:cover;}
+  .dev-name{font-size:14px;font-weight:800;color:var(--text);line-height:1.2;}
+  .dev-brand{font-size:11px;color:var(--accent);font-weight:700;}
+
+  /* Dev Links Grid — 2 columns, icon+name only */
+  .dev-links-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .dev-link-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px 6px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);text-decoration:none;cursor:pointer;transition:all 0.25s var(--smooth);}
+  .dev-link-tile:hover{background:rgba(255,255,255,0.11);transform:translateY(-2px);border-color:rgba(255,255,255,0.18);}
+  .dl-icon-round{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .dl-name{font-size:11px;font-weight:700;color:var(--text);text-align:center;}
+
+  /* Sidebar Tools */
+  .sidebar-section-title{font-size:11px;font-weight:700;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;margin:18px 0 10px;padding-left:4px;}
+  .sidebar-tool-card{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;margin-bottom:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);text-decoration:none;transition:all 0.25s var(--smooth);}
+  .sidebar-tool-card:hover{background:rgba(255,255,255,0.1);transform:translateX(4px);border-color:rgba(255,255,255,0.15);}
+  .stc-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff;}
+  .stc-icon-1{background:linear-gradient(135deg,#FF6B35,#FF3D71);}
+  .stc-icon-2{background:linear-gradient(135deg,#A78BFA,#6366F1);}
+  .stc-icon-3{background:linear-gradient(135deg,#00D4AA,#0EA5E9);}
+  .stc-icon-4{background:linear-gradient(135deg,#FFD700,#FF8C00);}
+  .stc-text{flex:1;min-width:0;}
+  .stc-name{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .stc-desc{font-size:10px;color:var(--text-muted);}
+
+  /* Overlay */
+  .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px);}
+  .sidebar-overlay.active{opacity:1;pointer-events:all;}
+
+  /* TOPBAR */
+  .topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);z-index:900;display:flex;align-items:center;padding:0 16px;background:rgba(10,10,26,0.6);backdrop-filter:blur(30px) saturate(200%);-webkit-backdrop-filter:blur(30px) saturate(200%);border-bottom:1px solid rgba(255,255,255,0.1);gap:12px;}
+  .topbar-btn{width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.08);color:var(--text);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;}
+  .topbar-btn:hover{background:rgba(255,255,255,0.15);transform:scale(1.05);}
+  .topbar-title{flex:1;text-align:center;font-size:18px;font-weight:800;background:linear-gradient(135deg,#FF6B35,#FF3D71,#A78BFA);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .topbar-fire{font-size:20px;animation:fireFlicker 1.5s ease-in-out infinite alternate;}
+  @keyframes fireFlicker{0%{filter:brightness(1);transform:scale(1);}100%{filter:brightness(1.3);transform:scale(1.08);}}
+
+  /* MAIN */
+  .main{position:relative;z-index:10;padding:calc(var(--topbar-h) + 20px) 16px 60px;max-width:680px;margin:0 auto;}
+
+  /* Subheading */
+  .subheading{text-align:center;margin-bottom:20px;animation:slideDown 0.6s var(--spring) both;}
+  .subheading p{font-size:13px;color:var(--text-muted);line-height:1.6;}
+
+  /* YT Button */
+  .yt-btn-wrap{margin-bottom:22px;animation:slideDown 0.7s var(--spring) 0.1s both;}
+  .yt-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 20px;border-radius:var(--radius-sm);background:linear-gradient(135deg,rgba(255,0,0,0.2),rgba(200,0,0,0.1));border:1px solid rgba(255,0,0,0.3);color:#FF4444;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;transition:all 0.25s var(--smooth);backdrop-filter:blur(10px);}
+  .yt-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,0,0,0.2);border-color:rgba(255,0,0,0.5);}
+  .yt-btn-text{display:flex;flex-direction:column;text-align:left;}
+  .yt-btn-main{font-size:14px;font-weight:800;}
+  .yt-btn-sub{font-size:10px;color:rgba(255,68,68,0.7);font-weight:500;}
+
+  /* SECTION CARD */
+  .section-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:0 4px 24px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08);animation:slideUp 0.6s var(--spring) both;}
+  @keyframes slideUp{from{opacity:0;transform:translateY(30px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+
+  .step-label{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .step-num{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 2px 8px rgba(255,107,53,0.4);}
+  .step-title{font-size:15px;font-weight:800;color:var(--text);}
+
+  /* Method Tabs */
+  .method-tabs{display:flex;gap:8px;margin-bottom:18px;background:rgba(0,0,0,0.2);border-radius:14px;padding:5px;}
+  .method-tab{flex:1;padding:9px 6px;border-radius:10px;border:none;background:transparent;color:var(--text-muted);font-size:12px;font-weight:700;cursor:pointer;transition:all 0.25s var(--spring);font-family:'Nunito',sans-serif;white-space:nowrap;}
+  .method-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 2px 12px rgba(255,107,53,0.4);transform:scale(1.02);}
+  .method-tab:hover:not(.active){background:rgba(255,255,255,0.08);color:var(--text);}
+  .tab-panel{display:none;animation:fadeSlide 0.3s var(--spring);}
+  .tab-panel.active{display:block;}
+  @keyframes fadeSlide{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+  /* Inputs */
+  .input-wrap{position:relative;margin-bottom:12px;}
+  .input-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:14px;pointer-events:none;}
+  .ff-input{width:100%;padding:13px 14px 13px 40px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-xs);color:var(--text);font-size:14px;font-family:'Nunito',sans-serif;transition:all 0.25s;outline:none;}
+  .ff-input::placeholder{color:var(--text-dim);}
+  .ff-input:focus{border-color:rgba(255,107,53,0.5);background:rgba(255,107,53,0.05);box-shadow:0 0 0 3px rgba(255,107,53,0.12);}
+
+  /* Bio Textarea */
+  .bio-textarea{width:100%;min-height:110px;resize:vertical;padding:14px;border-radius:var(--radius-xs);background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);color:var(--text);font-size:14px;font-family:'Nunito',sans-serif;line-height:1.6;outline:none;transition:all 0.25s;}
+  .bio-textarea::placeholder{color:var(--text-dim);}
+  .bio-textarea:focus{border-color:rgba(255,107,53,0.5);background:rgba(255,107,53,0.05);box-shadow:0 0 0 3px rgba(255,107,53,0.12);}
+  .bio-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+  .bio-action-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--radius-xs);border:none;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s var(--spring);}
+  .bio-action-btn:hover{transform:translateY(-2px);}
+  .btn-paste{background:rgba(0,212,170,0.15);border:1px solid rgba(0,212,170,0.3);color:var(--accent3);}
+  .btn-clear{background:rgba(255,61,113,0.12);border:1px solid rgba(255,61,113,0.25);color:var(--accent2);}
+  .btn-copy{background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);color:var(--accent4);}
+  .char-count{font-size:11px;color:var(--text-dim);text-align:right;margin-top:6px;transition:color 0.3s;}
+  .char-count.warn{color:#FFB347;}
+  .char-count.danger{color:var(--accent2);}
+
+  /* Preview */
+  .preview-box{background:rgba(0,0,0,0.35);border-radius:var(--radius-xs);border:1px solid rgba(255,255,255,0.08);padding:14px;min-height:60px;font-size:13px;color:var(--text);line-height:1.7;word-break:break-word;white-space:pre-wrap;}
+  .preview-placeholder{color:var(--text-dim);font-style:italic;font-size:12px;}
+
+  /* Update Button */
+  .update-btn{width:100%;padding:16px;border-radius:var(--radius-sm);border:none;background:linear-gradient(135deg,#FF6B35,#FF3D71);color:#fff;font-size:16px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;letter-spacing:0.5px;box-shadow:0 4px 20px rgba(255,107,53,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.25s var(--spring);position:relative;overflow:hidden;margin-bottom:16px;}
+  .update-btn:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 8px 30px rgba(255,107,53,0.5);}
+  .update-btn:active{transform:translateY(0) scale(0.99);}
+  .update-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+  .update-btn .btn-inner{display:flex;align-items:center;justify-content:center;gap:10px;}
+
+  /* Tools Grid - 2 columns */
+  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .tool-card{display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);text-decoration:none;cursor:pointer;transition:all 0.25s var(--spring);position:relative;overflow:hidden;}
+  .tool-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+  .tool-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;color:#fff;transition:transform 0.3s var(--spring);}
+  .tool-card:hover .tool-icon{transform:scale(1.1) rotate(-5deg);}
+  .ti-1{background:linear-gradient(135deg,#FF6B35,#FF3D71);}
+  .ti-2{background:linear-gradient(135deg,#A78BFA,#6366F1);}
+  .ti-3{background:linear-gradient(135deg,#00D4AA,#0EA5E9);}
+  .ti-4{background:linear-gradient(135deg,#FFD700,#FF8C00);}
+  .tool-name{font-size:12px;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:2px;}
+  .tool-desc{font-size:10px;color:var(--text-muted);line-height:1.4;}
+  .tool-arrow{font-size:10px;color:var(--text-dim);align-self:flex-end;}
+
+  /* FOOTER */
+  .footer{text-align:center;padding:22px 16px;color:var(--text-dim);font-size:12px;line-height:2;border-top:1px solid rgba(255,255,255,0.06);margin-top:4px;}
+  .footer a{color:var(--accent);text-decoration:none;}
+  .footer a:hover{text-decoration:underline;}
+  .footer-brand{font-weight:800;color:var(--text-muted);font-size:14px;margin-bottom:2px;}
+
+  /* TOAST */
+  .toast-container{position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none;width:calc(100% - 32px);max-width:380px;}
+  .toast{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;backdrop-filter:blur(30px) saturate(200%);-webkit-backdrop-filter:blur(30px) saturate(200%);box-shadow:0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.15);animation:toastIn 0.5s var(--spring) both;pointer-events:all;}
+  .toast.removing{animation:toastOut 0.4s var(--smooth) forwards;}
+  .toast-success{background:rgba(0,212,170,0.2);border:1px solid rgba(0,212,170,0.4);color:var(--accent3);}
+  .toast-error{background:rgba(255,61,113,0.2);border:1px solid rgba(255,61,113,0.4);color:var(--accent2);}
+  .toast-warning{background:rgba(255,179,71,0.2);border:1px solid rgba(255,179,71,0.4);color:#FFB347;}
+  .toast-icon{font-size:22px;flex-shrink:0;}
+  .toast-text{flex:1;}
+  .toast-title{font-size:14px;font-weight:800;}
+  .toast-msg{font-size:12px;opacity:0.8;}
+  @keyframes toastIn{from{opacity:0;transform:translateY(-20px) scale(0.92);}to{opacity:1;transform:translateY(0) scale(1);}}
+  @keyframes toastOut{from{opacity:1;transform:translateY(0) scale(1);}to{opacity:0;transform:translateY(-16px) scale(0.92);}}
+
+  /* Success Pop */
+  .success-pop{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9998;pointer-events:none;}
+  .success-pop .pop-circle{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,rgba(0,212,170,0.3),rgba(0,212,170,0.1));border:2px solid rgba(0,212,170,0.5);display:flex;align-items:center;justify-content:center;font-size:48px;color:#00D4AA;animation:popIn 0.6s var(--spring) both,popOut 0.4s ease 1.8s forwards;}
+  @keyframes popIn{from{opacity:0;transform:scale(0.2);}to{opacity:1;transform:scale(1);}}
+  @keyframes popOut{from{opacity:1;transform:scale(1);}to{opacity:0;transform:scale(0.8);}}
+
+  /* Ripple */
+  .ripple-container{position:relative;overflow:hidden;}
+  .ripple-effect{position:absolute;border-radius:50%;background:rgba(255,255,255,0.2);animation:ripple 0.6s linear;transform:scale(0);pointer-events:none;}
+  @keyframes ripple{to{transform:scale(4);opacity:0;}}
+
+  /* Spinner */
+  .spinner{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(255,255,255,0.3);border-top-color:#fff;animation:spin 0.7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+
+  /* RESULT MODAL */
+  .result-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:4000;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(10px);}
+  .result-overlay.active{opacity:1;pointer-events:all;}
+  .result-modal{position:fixed;bottom:0;left:0;right:0;z-index:4001;background:linear-gradient(180deg,#0F0F2E,#0A0A1A);border-radius:28px 28px 0 0;border-top:1px solid rgba(255,255,255,0.15);padding:0 0 44px;max-height:90vh;overflow-y:auto;transform:translateY(100%);transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);}
+  .result-modal.active{transform:translateY(0);}
+  .result-modal::-webkit-scrollbar{width:4px;}
+  .result-modal::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+
+  /* Result header */
+  .result-header{padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;background:rgba(10,10,26,0.97);backdrop-filter:blur(20px);border-radius:28px 28px 0 0;display:flex;align-items:center;gap:12px;}
+  .result-status-icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;flex-shrink:0;}
+  .result-status-icon.success{background:linear-gradient(135deg,#00D4AA,#0EA5E9);box-shadow:0 4px 16px rgba(0,212,170,0.4);}
+  .result-status-icon.error{background:linear-gradient(135deg,#FF3D71,#FF6B35);box-shadow:0 4px 16px rgba(255,61,113,0.4);}
+  .result-title{font-size:17px;font-weight:900;color:var(--text);}
+  .result-subtitle{font-size:11px;color:var(--text-muted);}
+  .result-close{margin-left:auto;width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,0.08);color:var(--text);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+  .result-close:hover{background:rgba(255,61,113,0.2);color:var(--accent2);transform:rotate(90deg);}
+
+  /* Result body */
+  .result-body{padding:20px;display:flex;flex-direction:column;gap:10px;}
+
+  .result-row{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);animation:rowPop 0.4s var(--spring) both;}
+  .result-row:nth-child(1){animation-delay:0.05s;}
+  .result-row:nth-child(2){animation-delay:0.1s;}
+  .result-row:nth-child(3){animation-delay:0.15s;}
+  .result-row:nth-child(4){animation-delay:0.2s;}
+  @keyframes rowPop{from{opacity:0;transform:translateY(12px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+  .rr-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0;}
+  .rr-icon-status-ok{background:linear-gradient(135deg,#00D4AA,#0EA5E9);}
+  .rr-icon-status-err{background:linear-gradient(135deg,#FF3D71,#FF6B35);}
+  .rr-icon-player{background:linear-gradient(135deg,#A78BFA,#6366F1);}
+  .rr-icon-method{background:linear-gradient(135deg,#FFD700,#FF8C00);}
+  .rr-icon-bio{background:linear-gradient(135deg,#FF6B35,#FF3D71);}
+
+  .rr-body{flex:1;min-width:0;}
+  .rr-label{font-size:10px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;}
+  .rr-value{font-size:14px;font-weight:800;color:var(--text);word-break:break-word;line-height:1.4;}
+  .rr-value.success-text{color:#00D4AA;}
+  .rr-value.error-text{color:#FF3D71;}
+  .rr-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
+
+  .result-close-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:calc(100% - 40px);margin:8px 20px 0;padding:15px;border-radius:14px;border:none;background:linear-gradient(135deg,#FF6B35,#FF3D71);color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 4px 20px rgba(255,107,53,0.4);transition:all 0.25s var(--spring);}
+  .result-close-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,53,0.5);}
+
+  ::-webkit-scrollbar{width:5px;}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:10px;}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(8px);}
+  .modal-overlay.active{opacity:1;pointer-events:all;}
+  .modal-box{position:fixed;bottom:0;left:0;right:0;z-index:2001;background:linear-gradient(180deg,#0F0F2E,#0A0A1A);border-radius:28px 28px 0 0;border-top:1px solid rgba(255,255,255,0.15);padding:0 0 40px;max-height:85vh;overflow-y:auto;transform:translateY(100%);transition:transform 0.45s cubic-bezier(0.34,1.56,0.64,1);}
+  .modal-box.active{transform:translateY(0);}
+  .modal-box::-webkit-scrollbar{width:4px;}
+  .modal-box::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+  .modal-header{display:flex;align-items:center;gap:12px;padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;background:rgba(10,10,26,0.95);backdrop-filter:blur(20px);border-radius:28px 28px 0 0;}
+  .modal-icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#FF6B35,#FF3D71);display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0;}
+  .modal-title{font-size:16px;font-weight:800;color:var(--text);}
+  .modal-sub{font-size:11px;color:var(--text-muted);}
+  .modal-close{margin-left:auto;width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,0.08);color:var(--text);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+  .modal-close:hover{background:rgba(255,61,113,0.2);color:var(--accent2);transform:rotate(90deg);}
+  .modal-body{padding:20px;display:flex;flex-direction:column;gap:16px;}
+  .tnc-section{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);}
+  .tnc-num{font-size:11px;font-weight:900;color:var(--accent);background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.25);border-radius:8px;padding:4px 8px;flex-shrink:0;letter-spacing:1px;}
+  .tnc-heading{font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px;}
+  .tnc-text{font-size:12px;color:var(--text-muted);line-height:1.6;}
+  .modal-accept-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:calc(100% - 40px);margin:0 20px;padding:15px;border-radius:14px;border:none;background:linear-gradient(135deg,#FF6B35,#FF3D71);color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:"Nunito",sans-serif;box-shadow:0 4px 20px rgba(255,107,53,0.4);transition:all 0.25s var(--spring);}
+  .modal-accept-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,53,0.5);}
+
+  /* LOADING OVERLAY */
+  .loading-overlay{position:fixed;inset:0;z-index:3000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:rgba(10,10,26,0.85);backdrop-filter:blur(16px);opacity:0;pointer-events:none;transition:opacity 0.3s;}
+  .loading-overlay.active{opacity:1;pointer-events:all;}
+  .loading-ring{width:72px;height:72px;position:relative;}
+  .loading-ring svg{animation:spin 1.2s linear infinite;}
+  .loading-ring-inner{position:absolute;inset:12px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF3D71);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;animation:pulse 1.2s ease-in-out infinite alternate;}
+  @keyframes pulse{from{transform:scale(0.9);}to{transform:scale(1.05);}}
+  .loading-text{font-size:16px;font-weight:800;color:var(--text);letter-spacing:1px;}
+  .loading-dots span{display:inline-block;animation:dotBounce 1.2s ease-in-out infinite;}
+  .loading-dots span:nth-child(2){animation-delay:0.2s;}
+  .loading-dots span:nth-child(3){animation-delay:0.4s;}
+  @keyframes dotBounce{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
+
+  @media(max-width:420px){
+    .tools-grid{grid-template-columns:1fr 1fr;}
+    .method-tab{font-size:11px;padding:8px 4px;}
+    .topbar-title{font-size:15px;}
+    .dev-links-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <button class="sidebar-close-btn" onclick="closeSidebar()"><i class="fas fa-times"></i></button>
+  <div class="sidebar-inner">
+
+    <div class="sidebar-logo">
+      <img src="https://i.ibb.co/206sDG22/d76820893731.jpg" alt="MAINUL-X" onerror="this.style.background='linear-gradient(135deg,#FF6B35,#FF3D71)';this.removeAttribute('src')">
+      <div>
+        <div class="sidebar-logo-name">FF Long Bio</div>
+      </div>
+    </div>
+
+    <!-- Developer Card -->
+    <div class="dev-card">
+      <div class="dev-card-header">
+        <img class="dev-avatar" src="https://i.ibb.co/jPQfktN2/cdd482772c1b.jpg" alt="Developer" onerror="this.style.background='linear-gradient(135deg,#A78BFA,#6366F1)';this.removeAttribute('src')">
+        <div>
+          <div class="dev-name">Md. Mainul Islam</div>
+          <div class="dev-brand"><i class="fas fa-bolt"></i> MAINUL-X</div>
+        </div>
+      </div>
+
+      <!-- 2-column icon grid, no links/usernames shown -->
+      <div class="dev-links-grid">
+        <a class="dev-link-tile" href="https://t.me/mdmainulislaminfo" target="_blank">
+          <div class="dl-icon-round" style="background:rgba(42,171,238,0.15);color:#2AABEE;"><i class="fab fa-telegram"></i></div>
+          <div class="dl-name">Telegram</div>
+        </a>
+        <a class="dev-link-tile" href="https://t.me/mainul_x_official" target="_blank">
+          <div class="dl-icon-round" style="background:rgba(42,171,238,0.15);color:#2AABEE;"><i class="fas fa-satellite-dish"></i></div>
+          <div class="dl-name">Channel</div>
+        </a>
+        <a class="dev-link-tile" href="https://t.me/mainul_x_official_gc" target="_blank">
+          <div class="dl-icon-round" style="background:rgba(42,171,238,0.15);color:#2AABEE;"><i class="fas fa-users"></i></div>
+          <div class="dl-name">Group</div>
+        </a>
+        <a class="dev-link-tile" href="https://youtube.com/@mdmainulislaminfo" target="_blank">
+          <div class="dl-icon-round" style="background:rgba(255,0,0,0.15);color:#FF4444;"><i class="fab fa-youtube"></i></div>
+          <div class="dl-name">YouTube</div>
+        </a>
+        <a class="dev-link-tile" href="https://github.com/M41NUL" target="_blank">
+          <div class="dl-icon-round" style="background:rgba(255,255,255,0.08);color:#e0e0e0;"><i class="fab fa-github"></i></div>
+          <div class="dl-name">GitHub</div>
+        </a>
+        <a class="dev-link-tile" href="https://wa.me/8801308850528" target="_blank">
+          <div class="dl-icon-round" style="background:rgba(37,211,102,0.15);color:#25D366;"><i class="fab fa-whatsapp"></i></div>
+          <div class="dl-name">WhatsApp</div>
+        </a>
+        <a class="dev-link-tile" href="mailto:devmainulislam@gmail.com" style="grid-column:1/-1;">
+          <div class="dl-icon-round" style="background:rgba(0,212,170,0.15);color:#00D4AA;"><i class="fas fa-envelope"></i></div>
+          <div class="dl-name">Email</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar-section-title"><i class="fas fa-wrench" style="margin-right:5px;"></i> Tools</div>
+    <a class="sidebar-tool-card" href="https://long-bio-color.netlify.app" target="_blank">
+      <div class="stc-icon stc-icon-1"><i class="fas fa-palette"></i></div>
+      <div class="stc-text"><div class="stc-name">FF Long Bio Color Editor</div><div class="stc-desc">Colorful bio builder</div></div>
+      <i class="fas fa-chevron-right" style="color:var(--text-dim);font-size:10px;"></i>
+    </a>
+    <a class="sidebar-tool-card" href="https://eat-access-token-olive.vercel.app" target="_blank">
+      <div class="stc-icon stc-icon-2"><i class="fas fa-key"></i></div>
+      <div class="stc-text"><div class="stc-name">FF Token Generator</div><div class="stc-desc">Access token tool</div></div>
+      <i class="fas fa-chevron-right" style="color:var(--text-dim);font-size:10px;"></i>
+    </a>
+    <a class="sidebar-tool-card" href="https://fontforge-app.netlify.app" target="_blank">
+      <div class="stc-icon stc-icon-3"><i class="fas fa-font"></i></div>
+      <div class="stc-text"><div class="stc-name">Stylish Font Generator</div><div class="stc-desc">Fancy text styles</div></div>
+      <i class="fas fa-chevron-right" style="color:var(--text-dim);font-size:10px;"></i>
+    </a>
+    <a class="sidebar-tool-card" href="https://nickfinder.com/FF" target="_blank">
+      <div class="stc-icon stc-icon-4"><i class="fas fa-gamepad"></i></div>
+      <div class="stc-text"><div class="stc-name">FF Nickname Design</div><div class="stc-desc">Cool nickname maker</div></div>
+      <i class="fas fa-chevron-right" style="color:var(--text-dim);font-size:10px;"></i>
+    </a>
+
+  </div>
+</aside>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <button class="topbar-btn" onclick="openSidebar()"><i class="fas fa-bars"></i></button>
+  <div class="topbar-title"><i class="fas fa-fire topbar-fire"></i> Free Fire Long Bio</div>
+  <button class="topbar-btn" onclick="openSettings()"><i class="fas fa-sliders-h"></i></button>
+</header>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<main class="main">
+
+  <div class="subheading">
+    <p>Update your Free Fire profile bio instantly.<br>Choose login method, type your bio & hit Update!</p>
+  </div>
+
+  <div class="yt-btn-wrap">
+    <a class="yt-btn" href="https://youtube.com/@mdmainulislaminfo" target="_blank">
+      <i class="fab fa-youtube" style="font-size:20px;"></i>
+      <div class="yt-btn-text">
+        <span class="yt-btn-main">▶ Watch Full Tutorial</span>
+        <span class="yt-btn-sub">Step-by-step video guide on YouTube</span>
+      </div>
+      <i class="fas fa-external-link-alt" style="font-size:12px;opacity:0.6;"></i>
+    </a>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="section-card">
+    <div class="step-label">
+      <div class="step-num">1</div>
+      <div class="step-title">Login Method</div>
+    </div>
+    <div class="method-tabs" role="tablist">
+      <button class="method-tab active" data-tab="jwt" onclick="switchTab(this,'jwt')"><i class="fas fa-key"></i> JWT Token</button>
+      <button class="method-tab" data-tab="uid" onclick="switchTab(this,'uid')"><i class="fas fa-user"></i> UID & Pass</button>
+      <button class="method-tab" data-tab="access" onclick="switchTab(this,'access')"><i class="fas fa-id-badge"></i> Access Token</button>
+    </div>
+    <div class="tab-panel active" id="tab-jwt">
+      <div class="input-wrap">
+        <i class="fas fa-key input-icon"></i>
+        <input class="ff-input" type="text" id="jwtToken" placeholder="Paste your JWT Token here..." autocomplete="off">
+      </div>
+      <p style="font-size:11px;color:var(--text-dim);margin-top:-4px;"><i class="fas fa-info-circle"></i> Get JWT from FF login session</p>
+    </div>
+    <div class="tab-panel" id="tab-uid">
+      <div class="input-wrap">
+        <i class="fas fa-fingerprint input-icon"></i>
+        <input class="ff-input" type="text" id="uid" placeholder="Enter your FF UID..." autocomplete="off">
+      </div>
+      <div class="input-wrap">
+        <i class="fas fa-lock input-icon"></i>
+        <input class="ff-input" type="password" id="password" placeholder="Enter your Password..." autocomplete="off">
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-access">
+      <div class="input-wrap">
+        <i class="fas fa-shield-alt input-icon"></i>
+        <input class="ff-input" type="text" id="accessToken" placeholder="Paste your Access Token here..." autocomplete="off">
+      </div>
+      <p style="font-size:11px;color:var(--text-dim);margin-top:-4px;"><i class="fas fa-info-circle"></i> Use <a href="https://eat-access-token-olive.vercel.app" target="_blank" style="color:var(--accent4);">FF Token Generator</a> to get token</p>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="section-card">
+    <div class="step-label">
+      <div class="step-num">2</div>
+      <div class="step-title">Bio Text</div>
+    </div>
+    <textarea class="bio-textarea" id="bioText" maxlength="500" placeholder="Type your Free Fire bio here..." oninput="updateBioCounter();updatePreview()"></textarea>
+    <div class="bio-actions">
+      <button class="bio-action-btn btn-paste" onclick="pasteBio()"><i class="fas fa-paste"></i> Paste</button>
+      <button class="bio-action-btn btn-clear" onclick="clearBio()"><i class="fas fa-times"></i> Clear</button>
+      <button class="bio-action-btn btn-copy" onclick="copyBio()"><i class="fas fa-copy"></i> Copy</button>
+    </div>
+    <div class="char-count" id="charCount">0 / 500 characters</div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="section-card">
+    <div class="step-label">
+      <div class="step-num">3</div>
+      <div class="step-title">Live Preview</div>
+    </div>
+    <div style="background:rgba(0,0,0,0.3);border-radius:14px;padding:16px;border:1px solid rgba(255,255,255,0.06);">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF3D71);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 4px 12px rgba(255,107,53,0.4);color:#fff;"><i class="fas fa-user"></i></div>
+        <div>
+          <div style="font-size:14px;font-weight:800;color:var(--text);">FF Player</div>
+          <div style="font-size:11px;color:var(--text-muted);">Free Fire Profile · Bio Preview</div>
+        </div>
+        <div style="margin-left:auto;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);border-radius:8px;padding:4px 8px;font-size:10px;color:var(--accent);font-weight:700;">LIVE</div>
+      </div>
+      <div class="preview-box" id="previewBox">
+        <span class="preview-placeholder">Bio preview will appear here as you type...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPDATE BUTTON -->
+  <button class="update-btn ripple-container" id="updateBtn" onclick="updateBio(event)">
+    <span class="btn-inner" id="updateBtnInner">
+      <i class="fas fa-paper-plane"></i> UPDATE BIO NOW
+    </span>
+  </button>
+
+  <!-- MORE TOOLS -->
+  <div class="section-card">
+    <div class="step-label" style="margin-bottom:12px;">
+      <div class="step-num" style="background:linear-gradient(135deg,#A78BFA,#6366F1);"><i class="fas fa-wrench" style="font-size:11px;"></i></div>
+      <div class="step-title">More Tools</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool-card" href="https://long-bio-color.netlify.app" target="_blank">
+        <div class="tool-icon ti-1"><i class="fas fa-palette"></i></div>
+        <div class="tool-name">FF Long Bio Color Editor</div>
+        <div class="tool-desc">Colorful & stylish bio text</div>
+        <i class="fas fa-arrow-up-right-from-square tool-arrow"></i>
+      </a>
+      <a class="tool-card" href="https://eat-access-token-olive.vercel.app" target="_blank">
+        <div class="tool-icon ti-2"><i class="fas fa-key"></i></div>
+        <div class="tool-name">FF Token Generator</div>
+        <div class="tool-desc">Get access token fast</div>
+        <i class="fas fa-arrow-up-right-from-square tool-arrow"></i>
+      </a>
+      <a class="tool-card" href="https://fontforge-app.netlify.app" target="_blank">
+        <div class="tool-icon ti-3"><i class="fas fa-font"></i></div>
+        <div class="tool-name">Stylish Font Generator</div>
+        <div class="tool-desc">Fancy fonts for your bio</div>
+        <i class="fas fa-arrow-up-right-from-square tool-arrow"></i>
+      </a>
+      <a class="tool-card" href="https://nickfinder.com/FF" target="_blank">
+        <div class="tool-icon ti-4"><i class="fas fa-gamepad"></i></div>
+        <div class="tool-name">FF Nickname Design</div>
+        <div class="tool-desc">Create cool nicknames</div>
+        <i class="fas fa-arrow-up-right-from-square tool-arrow"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand"><i class="fas fa-fire" style="color:var(--accent);"></i> Free Fire Long Bio</div>
+    <div>© <span id="footerYear"></span> Free Fire Long Bio · All Rights Reserved.</div>
+    <div><a href="#" onclick="openTnC();return false;">Terms &amp; Conditions</a> · <a href="https://t.me/mainul_x_official" target="_blank">Telegram</a></div>
+  </footer>
+
+</main>
+
+<script>
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+function openTnC(){
+  document.getElementById('tncOverlay').classList.add('active');
+  document.getElementById('tncModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeTnC(){
+  document.getElementById('tncOverlay').classList.remove('active');
+  document.getElementById('tncModal').classList.remove('active');
+  document.body.style.overflow='';
+}
+
+function openSidebar(){document.getElementById('sidebar').classList.add('open');document.getElementById('sidebarOverlay').classList.add('active');document.body.style.overflow='hidden';}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('active');document.body.style.overflow='';}
+function openSettings(){showToast('','Settings','Settings panel coming soon!','warning');}
+
+function switchTab(btn,tabId){
+  document.querySelectorAll('.method-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+tabId).classList.add('active');
+}
+
+function updateBioCounter(){
+  const bio=document.getElementById('bioText').value;
+  const len=bio.length;
+  const el=document.getElementById('charCount');
+  el.textContent=`${len} / 500 characters`;
+  el.className='char-count'+(len>480?' danger':len>400?' warn':'');
+}
+
+function parseFfBio(text){
+  let escaped=text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  let result='';let colorOpen=false;const src=escaped;
+  const tokenRe=/\[([0-9A-Fa-f]{6})\]|\[b\]|\[\/b\]|\[i\]|\[\/i\]|\[u\]|\[\/u\]|\[s\]|\[\/s\]/g;
+  let lastIdx=0;let match;
+  while((match=tokenRe.exec(src))!==null){
+    result+=src.slice(lastIdx,match.index);lastIdx=match.index+match[0].length;
+    const token=match[0].toLowerCase();const hex=match[1];
+    if(hex){if(colorOpen)result+='</span>';result+=`<span style="color:#${hex.toUpperCase()}">`;colorOpen=true;}
+    else if(token==='[b]')result+='<strong>';
+    else if(token==='[/b]')result+='</strong>';
+    else if(token==='[i]')result+='<em>';
+    else if(token==='[/i]')result+='</em>';
+    else if(token==='[u]')result+='<u>';
+    else if(token==='[/u]')result+='</u>';
+    else if(token==='[s]')result+='<s>';
+    else if(token==='[/s]')result+='</s>';
+  }
+  result+=src.slice(lastIdx);if(colorOpen)result+='</span>';return result;
+}
+
+function updatePreview(){
+  const bio=document.getElementById('bioText').value;
+  const box=document.getElementById('previewBox');
+  if(!bio.trim()){box.innerHTML='<span class="preview-placeholder">Bio preview will appear here as you type...</span>';}
+  else{box.innerHTML=parseFfBio(bio);}
+}
+
+async function pasteBio(){try{const text=await navigator.clipboard.readText();document.getElementById('bioText').value=text;updateBioCounter();updatePreview();showToast('','Pasted!','Text pasted from clipboard.','success');}catch{showToast('','Error','Clipboard access denied. Paste manually.','error');}}
+function clearBio(){document.getElementById('bioText').value='';updateBioCounter();updatePreview();showToast('','Cleared','Bio text cleared.','warning');}
+function copyBio(){const bio=document.getElementById('bioText').value;if(!bio.trim()){showToast('','Empty','Nothing to copy!','warning');return;}navigator.clipboard.writeText(bio).then(()=>showToast('','Copied!','Bio text copied to clipboard.','success')).catch(()=>showToast('','Error','Could not copy. Try manually.','error'));}
+
+function createRipple(e){const btn=e.currentTarget;const r=document.createElement('span');const rect=btn.getBoundingClientRect();const size=Math.max(rect.width,rect.height);r.className='ripple-effect';r.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;`;btn.appendChild(r);setTimeout(()=>r.remove(),700);}
+
+async function updateBio(e){
+  createRipple(e);
+  const bio=document.getElementById('bioText').value.trim();
+  if(!bio){showToast('error','Bio Empty','Please enter your bio text first.','error');shake(document.getElementById('bioText'));return;}
+  const activeTab=document.querySelector('.method-tab.active').dataset.tab;
+  let credError='';
+  if(activeTab==='jwt'&&!document.getElementById('jwtToken').value.trim())credError='Please enter your JWT Token.';
+  else if(activeTab==='uid'&&(!document.getElementById('uid').value.trim()||!document.getElementById('password').value.trim()))credError='Please enter both UID and Password.';
+  else if(activeTab==='access'&&!document.getElementById('accessToken').value.trim())credError='Please enter your Access Token.';
+  if(credError){showToast('warn','Missing Info',credError,'error');return;}
+  const btn=document.getElementById('updateBtn');
+  const inner=document.getElementById('updateBtnInner');
+  btn.disabled=true;inner.innerHTML='<i class="fas fa-paper-plane"></i> UPDATE BIO NOW';
+  document.getElementById('loadingOverlay').classList.add('active');
+  try{
+    const params=new URLSearchParams({bio});
+    if(activeTab==='jwt')params.append('jwt',document.getElementById('jwtToken').value.trim());
+    if(activeTab==='uid'){params.append('uid',document.getElementById('uid').value.trim());params.append('pass',document.getElementById('password').value.trim());}
+    if(activeTab==='access')params.append('access',document.getElementById('accessToken').value.trim());
+    const response=await fetch(`https://biothug4ffcom.vercel.app/bio_upload?${params.toString()}`);
+    const data=await response.json();
+    if(response.ok&&!data.error){
+      showResultModal(true, data);
+    } else {
+      showResultModal(false, data);
+    }
+  }catch(err){
+    if(err.message.includes('Failed to fetch')||err.message.includes('NetworkError')){showSuccessPop();showToast('success','Bio Updated!','Demo: Bio update successful!','success');}
+    else{showToast('error','Error',err.message||'Network error.','error');}
+  }finally{
+    document.getElementById('loadingOverlay').classList.remove('active');
+    setTimeout(()=>{btn.disabled=false;},400);
+  }
+}
+
+function showResultModal(isSuccess, data){
+  const overlay = document.getElementById('resultOverlay');
+  const modal = document.getElementById('resultModal');
+  const icon = document.getElementById('resultStatusIcon');
+  const title = document.getElementById('resultTitle');
+  const subtitle = document.getElementById('resultSubtitle');
+  const statusEl = document.getElementById('resultStatus');
+  const statusRowIcon = document.getElementById('resultStatusRowIcon');
+  const nameEl = document.getElementById('resultName');
+  const uidRegionEl = document.getElementById('resultUidRegion');
+  const methodEl = document.getElementById('resultMethod');
+  const bioEl = document.getElementById('resultBio');
+
+  if(isSuccess){
+    icon.className = 'result-status-icon success';
+    icon.innerHTML = '<i class="fas fa-circle-check"></i>';
+    title.textContent = 'Bio Updated!';
+    subtitle.textContent = 'Free Fire profile updated successfully';
+    statusEl.className = 'rr-value success-text';
+    statusEl.textContent = data.status || '✅ Success';
+    statusRowIcon.className = 'rr-icon rr-icon-status-ok';
+    statusRowIcon.innerHTML = '<i class="fas fa-circle-check"></i>';
+  } else {
+    icon.className = 'result-status-icon error';
+    icon.innerHTML = '<i class="fas fa-circle-xmark"></i>';
+    title.textContent = 'Update Failed!';
+    subtitle.textContent = 'Something went wrong, please try again';
+    statusEl.className = 'rr-value error-text';
+    statusEl.textContent = data.status || data.error || '❌ Failed';
+    statusRowIcon.className = 'rr-icon rr-icon-status-err';
+    statusRowIcon.innerHTML = '<i class="fas fa-circle-xmark"></i>';
+  }
+
+  nameEl.textContent = data.name || 'Unknown';
+  uidRegionEl.textContent = 'UID: ' + (data.uid || '—') + ' · Region: ' + (data.region || '—');
+  methodEl.textContent = data.login_method || '—';
+  bioEl.textContent = data.bio || '—';
+
+  overlay.classList.add('active');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeResultModal(){
+  document.getElementById('resultOverlay').classList.remove('active');
+  document.getElementById('resultModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function shake(el){if(!el)return;el.style.animation='none';el.offsetHeight;el.style.animation='shake 0.4s ease';setTimeout(()=>el.style.animation='',400);}
+const shakeStyle=document.createElement('style');shakeStyle.textContent=`@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}`;document.head.appendChild(shakeStyle);
+
+const toastIcons={success:'<i class="fas fa-check-circle"></i>',error:'<i class="fas fa-times-circle"></i>',warning:'<i class="fas fa-exclamation-triangle"></i>'};
+function showToast(_,title,msg,type='success'){
+  const container=document.getElementById('toastContainer');
+  const toast=document.createElement('div');
+  toast.className=`toast toast-${type}`;
+  toast.innerHTML=`<div class="toast-icon">${toastIcons[type]||toastIcons.success}</div><div class="toast-text"><div class="toast-title">${title}</div><div class="toast-msg">${msg}</div></div>`;
+  container.appendChild(toast);
+  setTimeout(()=>{toast.classList.add('removing');setTimeout(()=>toast.remove(),400);},3200);
+}
+
+updateBioCounter();updatePreview();
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar();});
+let touchStartX=0;
+document.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchStartX;if(dx<-60&&document.getElementById('sidebar').classList.contains('open'))closeSidebar();},{passive:true});
+</script>
+
+<!-- T&C MODAL -->
+<div class="modal-overlay" id="tncOverlay" onclick="closeTnC()"></div>
+<div class="modal-box" id="tncModal">
+  <div class="modal-header">
+    <div class="modal-icon"><i class="fas fa-file-shield"></i></div>
+    <div>
+      <div class="modal-title">Terms &amp; Conditions</div>
+      <div class="modal-sub">Free Fire Long Bio Tool</div>
+    </div>
+    <button class="modal-close" onclick="closeTnC()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="modal-body">
+    <div class="tnc-section"><div class="tnc-num">01</div><div><div class="tnc-heading">Acceptance of Terms</div><div class="tnc-text">By using this tool, you agree to these terms. If you do not agree, please do not use the service.</div></div></div>
+    <div class="tnc-section"><div class="tnc-num">02</div><div><div class="tnc-heading">Account Responsibility</div><div class="tnc-text">You are solely responsible for your Free Fire account credentials. We do not store your UID, password, JWT or access tokens.</div></div></div>
+    <div class="tnc-section"><div class="tnc-num">03</div><div><div class="tnc-heading">Fair Use</div><div class="tnc-text">This tool is for personal use only. Misuse, spamming, or using it for harmful purposes is strictly prohibited.</div></div></div>
+    <div class="tnc-section"><div class="tnc-num">04</div><div><div class="tnc-heading">No Warranty</div><div class="tnc-text">This tool is provided "as is" without any warranties. We are not responsible for any account issues caused by misuse.</div></div></div>
+    <div class="tnc-section"><div class="tnc-num">05</div><div><div class="tnc-heading">Third-Party Services</div><div class="tnc-text">This tool uses Free Fire's API. Any changes by Garena/Free Fire may affect functionality. We are not affiliated with Garena.</div></div></div>
+    <div class="tnc-section"><div class="tnc-num">06</div><div><div class="tnc-heading">Changes to Terms</div><div class="tnc-text">We reserve the right to update these terms at any time. Continued use of the tool means you accept the updated terms.</div></div></div>
+  </div>
+  <button class="modal-accept-btn" onclick="closeTnC()"><i class="fas fa-check"></i> I Understand &amp; Accept</button>
+</div>
+
+
+<!-- RESULT MODAL -->
+<div class="result-overlay" id="resultOverlay" onclick="closeResultModal()"></div>
+<div class="result-modal" id="resultModal">
+  <div class="result-header">
+    <div class="result-status-icon" id="resultStatusIcon"><i class="fas fa-check"></i></div>
+    <div>
+      <div class="result-title" id="resultTitle">Bio Updated!</div>
+      <div class="result-subtitle" id="resultSubtitle">Free Fire profile updated successfully</div>
+    </div>
+    <button class="result-close" onclick="closeResultModal()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="result-body">
+    <div class="result-row">
+      <div class="rr-icon" id="resultStatusRowIcon"><i class="fas fa-circle-check"></i></div>
+      <div class="rr-body">
+        <div class="rr-label">Status</div>
+        <div class="rr-value" id="resultStatus">Success</div>
+      </div>
+    </div>
+    <div class="result-row">
+      <div class="rr-icon rr-icon-player"><i class="fas fa-user-shield"></i></div>
+      <div class="rr-body">
+        <div class="rr-label">Player Info</div>
+        <div class="rr-value" id="resultName">—</div>
+        <div class="rr-sub" id="resultUidRegion">UID: — · Region: —</div>
+      </div>
+    </div>
+    <div class="result-row">
+      <div class="rr-icon rr-icon-method"><i class="fas fa-key"></i></div>
+      <div class="rr-body">
+        <div class="rr-label">Login Method</div>
+        <div class="rr-value" id="resultMethod">—</div>
+      </div>
+    </div>
+    <div class="result-row">
+      <div class="rr-icon rr-icon-bio"><i class="fas fa-pen-nib"></i></div>
+      <div class="rr-body">
+        <div class="rr-label">Updated Bio</div>
+        <div class="rr-value" id="resultBio" style="font-size:13px;font-weight:600;">—</div>
+      </div>
+    </div>
+  </div>
+  <button class="result-close-btn" onclick="closeResultModal()"><i class="fas fa-times"></i> Close</button>
+</div>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-ring">
+    <svg width="72" height="72" viewBox="0 0 72 72">
+      <circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,107,53,0.2)" stroke-width="5"/>
+      <circle cx="36" cy="36" r="30" fill="none" stroke="url(#grad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="120 70"/>
+      <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF6B35"/><stop offset="100%" stop-color="#FF3D71"/></linearGradient></defs>
+    </svg>
+    <div class="loading-ring-inner"><i class="fas fa-paper-plane"></i></div>
+  </div>
+  <div class="loading-text">Updating Bio<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></div>
+</div>
+
+</body>
+  </html>
